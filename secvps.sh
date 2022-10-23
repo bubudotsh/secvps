@@ -8,10 +8,10 @@ case $option in
         debug
         exit;;
     a)
-        sudo python3 prog/audit.py
+        sudo python3 audit.py
         exit;;
     l)
-        sudo python3 prog/secvps.py
+        sudo python3 secvps.py
         exit;;
     \?)
         echo "bad option, help : -h"
