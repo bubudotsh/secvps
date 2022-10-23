@@ -30,6 +30,8 @@ iptables -t filter -A OUTPUT -o lo -j ACCEPT
 #SMTP
 # SMTP1
 # SMTP2
+iptables -t filter -A INPUT -p tcp --dport 587 -j ACCEPT
+iptables -t filter -A OUTPUT -p tcp --dport 587 -j ACCEPT
 
 
 #POP3
