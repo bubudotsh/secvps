@@ -1,0 +1,31 @@
+[ sev-vps result ]
+
+----------------------------------
+System          : Linux
+Node Name       : kali
+Release         : 5.18.0-kali5-amd64
+Machine         : x86_64
+Total Usage     : 17.9 %
+----------------------------------
+Warnings        : 8
+Suggestion      : 17
+Tests performed : 271
+----------------------------------
+Security audit         [V]
+Vulnerability scan     [V]
+Firewall               [V]
+Malware scanner        [V]
+----------------------------------
+leaveit :1 Mon Oct 17 17:58 logged in
+reboot boot 5.18.0-kali5-amd Mon Oct 17 still running
+leaveit :1 Sun Oct 16 14:00 down (1+02:07)
+reboot boot 5.18.0-kali5-amd Sun Oct 16 - 16:07
+----------------------------------
+Status
+- Number of jail:	1
+`- Jail list:	sshd
+----------------------------------
+log of scan     : sec-vps/data/logscan.txt
+audit file      : sec-vps/data/audit.txt
+----------------------------------
+- Date of scan: 2022-10-23 21:25:43
