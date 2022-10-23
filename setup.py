@@ -126,7 +126,6 @@ def fail2ban () :
     os.system('sed -i "s/cccc/%s/g" f2b/jail.conf ' % maxretry)
 
     os.system('cp -fr f2b/jail.conf /etc/fail2ban/jail.conf')
-    os.system('cp -fr f2b/jail/* /etc/fail2ban/filter.d/')
 
     os.system('/etc/init.d/fail2ban stop ; /etc/init.d/fail2ban start')
 
