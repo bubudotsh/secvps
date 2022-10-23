@@ -103,18 +103,18 @@ def firewall () :
 
 def scan_conf () :
     mailsender = input('entrer mail sender, outlook uniquement : ')
-    os.system('sed -i "s/sendermail1/%s/g" secvps.py' % mailsender)
+    os.system('sed -i "s/sendermail1/%s/g" prog/secvps.py' % mailsender)
 
     password = input('enter password for mail sender : ')
-    os.system('sed -i "s/password1/%s/g" secvps.py' % password)
+    os.system('sed -i "s/password1/%s/g" prog/secvps.py' % password)
 
     mailreciver = input('mail reciver : ')
-    os.system('sed -i "s/ricivermail1/%s/g" secvps.py' % mailreciver)
+    os.system('sed -i "s/ricivermail1/%s/g" prog/secvps.py' % mailreciver)
 
 
 def fail2ban () :
     # https://www.sublimigeek.fr/installer-et-configurer-fail2ban-sur-un-serveur
-    print("configuration of fail2ban\n")
+    print("\nconfiguration of fail2ban\n")
 
     bantime = input('number of seconds that a host is banned: ')
     os.system('sed -i "s/aaaa/%s/g" f2b/jail.conf  ' % bantime)
