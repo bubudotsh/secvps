@@ -31,7 +31,7 @@ def setup () :
 
 
 def firewall () :
-    os.system('rm -fr /etc/init.d/firewall.sh ; cp -fr firewall.txt /etc/init.d/firewall.sh')
+    os.system('rm -fr /etc/init.d/firewall.sh ; cp -fr prog/firewall.txt /etc/init.d/firewall.sh')
 
     title()
     terminal_menu = TerminalMenu(
