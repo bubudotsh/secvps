@@ -31,7 +31,7 @@ def setup () :
 
 
 def firewall () :
-    os.system('rm -fr /etc/init.d/firewall.sh ; cp -fr prog/firewall.txt /etc/init.d/firewall.sh')
+    os.system('rm -fr /etc/init.d/firewall.sh ; cp -fr firewall.txt /etc/init.d/firewall.sh')
 
     title()
     terminal_menu = TerminalMenu(
@@ -127,7 +127,7 @@ def fail2ban () :
 
     os.system('cp -fr f2b/jail.conf /etc/fail2ban/jail.conf')
 
-    os.system('/etc/init.d/fail2ban stop ; /etc/init.d/fail2ban start')
+    os.system('/etc/init.d/fail2ban start')
 
 
 setup()
