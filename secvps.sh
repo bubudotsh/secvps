@@ -1,5 +1,5 @@
 # Option
-while getopts "hdal:" option; do
+while getopts "hdal" option; do
 case $option in
     h)
         help
@@ -8,10 +8,10 @@ case $option in
         debug
         exit;;
     a)
-        sudo python3 audit.py
+        sudo python3 src/audit.py
         exit;;
     l)
-        sudo python3 secvps.py
+        sudo python3 src/secvps.py
         exit;;
     \?)
         echo "bad option, help : -h"
