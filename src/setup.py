@@ -31,7 +31,7 @@ def setup () :
 
 
 def firewall () :
-    os.system('rm -fr /etc/init.d/firewall.sh ; cp -fr firewall.txt /etc/init.d/firewall.sh')
+    os.system('rm -fr /etc/init.d/firewall.sh ; cp -fr src/firewall.txt /etc/init.d/firewall.sh')
 
     title()
     terminal_menu = TerminalMenu(
@@ -103,13 +103,13 @@ def firewall () :
 
 def scan_conf () :
     mailsender = input('entrer mail sender, outlook uniquement : ')
-    os.system('sed -i "s/sendermail1/%s/g" secvps.py' % mailsender)
+    os.system('sed -i "s/sendermail1/%s/g" src/secvps.py' % mailsender)
 
     password = input('enter password for mail sender : ')
-    os.system('sed -i "s/password1/%s/g" secvps.py' % password)
+    os.system('sed -i "s/password1/%s/g" src/secvps.py' % password)
 
     mailreciver = input('mail reciver : ')
-    os.system('sed -i "s/ricivermail1/%s/g" secvps.py' % mailreciver)
+    os.system('sed -i "s/ricivermail1/%s/g" src/secvps.py' % mailreciver)
 
 
 def fail2ban () :
@@ -117,15 +117,15 @@ def fail2ban () :
     print("\nconfiguration of fail2ban\n")
 
     bantime = input('number of seconds that a host is banned: ')
-    os.system('sed -i "s/aaaa/%s/g" f2b/jail.conf  ' % bantime)
+    os.system('sed -i "s/aaaa/%s/g" src/f2b/jail.conf  ' % bantime)
 
     findtime = input('A host is banned if it has generated "maxretry" during the last "findtime": ')
-    os.system('sed -i "s/bbbb/%s/g" f2b/jail.conf  ' % findtime)
+    os.system('sed -i "s/bbbb/%s/g" src/f2b/jail.conf  ' % findtime)
 
     maxretry = input('number of failures before a host get banned: ')
-    os.system('sed -i "s/cccc/%s/g" f2b/jail.conf ' % maxretry)
+    os.system('sed -i "s/cccc/%s/g" src/f2b/jail.conf ' % maxretry)
 
-    os.system('cp -fr f2b/jail.conf /etc/fail2ban/jail.conf')
+    os.system('cp -fr src/f2b/jail.conf /etc/fail2ban/jail.conf')
 
     os.system('/etc/init.d/fail2ban start')
 
