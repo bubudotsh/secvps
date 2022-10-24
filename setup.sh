@@ -1,4 +1,5 @@
 mkdir src/tmp
+mkdir tmp
 sudo apt-get install python3
 sudo apt-get install pip
 pip install yaspin ; pip install datetime ; pip install psutil ; pip install ; pip install simple_term_menu

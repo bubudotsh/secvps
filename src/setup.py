@@ -111,6 +111,10 @@ def scan_conf () :
     mailreciver = input('mail reciver : ')
     os.system('sed -i "s/ricivermail1/%s/g" src/secvps.py' % mailreciver)
 
+    tim = input('\n enter time in hour between 2 scans: ')
+    res = int(tim) * 60 * 60
+    os.system('sed -i "s/tttt/%s/g" src/secvps.py' % res)
+
 
 def fail2ban () :
     # https://www.sublimigeek.fr/installer-et-configurer-fail2ban-sur-un-serveur
@@ -131,6 +135,14 @@ def fail2ban () :
 
 
 setup()
+os.system('clear')
+print ("> Package ✅")
 firewall()
+os.system('clear')
+print ("> Setup ✅\n> Firewall ✅")
 scan_conf()
+os.system('clear')
+print ("> Setup ✅\n> Firewall ✅\n> Scan configuration ✅")
 fail2ban()
+os.system('clear')
+print ("> Setup ✅\n> Firewall ✅\n> Scan configuration ✅\n> Fail2ban ✅")

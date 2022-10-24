@@ -172,9 +172,6 @@ def scan () :
 
 def mail () :
 
-    tim = input('enter time in hour between 2 scans: ')
-    res = int(tim) * 60 * 60
-
     while True :
         os.system("sudo apt-get update -y ; apt-get upgrade -y")
         os.system("sudo apt update -y ; apt upgrade -y")
@@ -200,6 +197,6 @@ def mail () :
 
         print ("mail ok")
 
-        time.sleep(res)
+        time.sleep(tttt)
 
 mail()
