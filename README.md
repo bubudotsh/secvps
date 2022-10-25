@@ -2,9 +2,6 @@
 
 Secure your server and create security audits on linux
 
-
-## Description
-
 This script secures your Linux server:
 - configuration of a firewall
 - manage port connections with fail2ban
