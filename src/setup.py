@@ -105,16 +105,19 @@ def scan_conf () :
     print("\nconfiguration of Audit\n")
     mailsender = input('entrer mail sender, outlook uniquement : ')
     os.system('sed -i "s/sendermail1/%s/g" src/secvps.py' % mailsender)
+    os.system('sed -i "s/sendermail1/%s/g" src/pm2secvps.py' % mailsender)
 
     password = input('enter password for mail sender : ')
     os.system('sed -i "s/password1/%s/g" src/secvps.py' % password)
+    os.system('sed -i "s/password1/%s/g" src/pm2secvps.py' % password)
 
     mailreciver = input('mail reciver : ')
     os.system('sed -i "s/ricivermail1/%s/g" src/secvps.py' % mailreciver)
+    os.system('sed -i "s/ricivermail1/%s/g" src/pm2secvps.py' % mailreciver)
 
     tim = input('\n enter time in hour between 2 scans: ')
     res = int(tim) * 60 * 60
-    os.system('sed -i "s/tttt/%s/g" src/secvps.py' % res)
+    os.system('sed -i "s/tttt/%s/g" src/pm2secvps.py' % res)
 
 
 def fail2ban () :
