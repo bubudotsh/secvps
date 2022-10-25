@@ -28,12 +28,11 @@ def title () :
 
 def scan () :
 
-    with yaspin(text="Scanning...", color="yellow") as spinner:
-        os.system('rm -fr data/scanlog.txt; touch data/scanlog.txt')
-        os.system('rm -fr data/audit.txt; touch data/audit.txt')
-        os.system('sudo lynis audit system > data/scanlog.txt')
-        os.system('sed -i -e "s,\x1B\[[0-9;]*[a-zA-Z],,g" data/scanlog.txt')
-        spinner.ok("✅")
+    print ("Scanning...")
+    os.system('rm -fr data/scanlog.txt; touch data/scanlog.txt')
+    os.system('rm -fr data/audit.txt; touch data/audit.txt')
+    os.system('sudo lynis audit system > data/scanlog.txt')
+    os.system('sed -i -e "s,\x1B\[[0-9;]*[a-zA-Z],,g" data/scanlog.txt')
 
 
     #Stats 
@@ -139,7 +138,7 @@ def scan () :
     os.system("rm -fr tmp/tmp.txt")
 
     audit.write("----------------------------------\n")
-    os.system("touch tmp/tmp ; sudo last -4 | awk '{print $1, $3, $4, $5, $6, $7, $9, $10}' | head -n4 > tmp/tmp.txt")
+    os.system("touch tmp/tmp ; sudo last -4 | awk '{print $1, $3, $5, $6, $7, $9, $10}' | head -n4 > tmp/tmp.txt")
     tmp = open ('tmp/tmp.txt', 'r')
     read_tmp = tmp.read()
     audit.write(read_tmp)

@@ -139,7 +139,7 @@ def scan () :
     os.system("rm -fr tmp/tmp.txt")
 
     audit.write("----------------------------------\n")
-    os.system("touch tmp/tmp ; sudo last -4 | awk '{print $1, $3, $4, $5, $6, $7, $9, $10}' | head -n4 > tmp/tmp.txt")
+    os.system("touch tmp/tmp ; sudo last -4 | awk '{print $1, $3, $5, $6, $7, $9, $10}' | head -n4 > tmp/tmp.txt")
     tmp = open ('tmp/tmp.txt', 'r')
     read_tmp = tmp.read()
     audit.write(read_tmp)
