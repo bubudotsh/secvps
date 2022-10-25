@@ -29,10 +29,10 @@ def title () :
 def scan () :
 
     with yaspin(text="Scanning...", color="yellow") as spinner:
-        os.system('rm -fr src/data/scanlog.txt; src/touch data/scanlog.txt')
-        os.system('rm -fr src/data/audit.txt; touch src/data/audit.txt')
-        os.system('sudo lynis audit system > src/data/scanlog.txt')
-        os.system('sed -i -e "s,\x1B\[[0-9;]*[a-zA-Z],,g" src/data/scanlog.txt')
+        os.system('rm -fr data/scanlog.txt; touch data/scanlog.txt')
+        os.system('rm -fr data/audit.txt; touch data/audit.txt')
+        os.system('sudo lynis audit system > data/scanlog.txt')
+        os.system('sed -i -e "s,\x1B\[[0-9;]*[a-zA-Z],,g" data/scanlog.txt')
         spinner.ok("✅")
 
 
@@ -44,11 +44,11 @@ def scan () :
     machine = "Machine         : {}".format(platform.machine())
     sysinfo = "\n{}\n{}\n{}\n{}\n{}".format(sys, node, release, machine, Usage)
 
-    audit = open("src/data/audit.txt", 'a')
+    audit = open("data/audit.txt", 'a')
 
     audit.write("[ sev-vps result ]\n\n")
 
-    file = open('src/data/scanlog.txt', 'r')
+    file = open('data/scanlog.txt', 'r')
     read_data = file.read()
 
     audit.write("----------------------------------")
@@ -65,7 +65,7 @@ def scan () :
     audit.write(str(len(per_word1)))
     audit.write("\n")
 
-    os.system('touch tmp/tmp.txt ; grep "Tests performed" src/data/scanlog.txt > tmp/tmp.txt')
+    os.system('touch tmp/tmp.txt ; grep "Tests performed" data/scanlog.txt > tmp/tmp.txt')
     os.system('sed -i -e "s/  //" tmp/tmp.txt')
     tmp = open('tmp/tmp.txt', 'r')
     read_tmp = tmp.read()
@@ -74,30 +74,14 @@ def scan () :
     os.system("rm -fr tmp/tmp.txt")
 
     audit.write("----------------------------------\n")
-    os.system('touch tmp/tmp.txt ; grep "Compliance status" src/data/scanlog.txt > tmp/tmp.txt')
+    os.system('touch tmp/tmp.txt ; grep "Compliance status" data/scanlog.txt > tmp/tmp.txt')
     os.system('sed -i -e "s/  - //" tmp/tmp.txt')
     tmp = open('tmp/tmp.txt', 'r')
     read_tmp = tmp.read()
     audit.write(read_tmp)
     tmp.close()
     os.system("rm -fr tmp/tmp.txt")
-    os.system('touch tmp/tmp.txt ; grep "Compliance Status" src/data/scanlog.txt > tmp/tmp.txt')
-    os.system('sed -i -e "s/  - //" tmp/tmp.txt')
-    tmp = open('tmp/tmp.txt', 'r')
-    read_tmp = tmp.read()
-    audit.write(read_tmp)
-    tmp.close()
-    os.system("rm -fr tmp/tmp.txt")
-
-
-    os.system('touch tmp/tmp.txt ; grep "Security audit" src/data/scanlog.txt > tmp/tmp.txt')
-    os.system('sed -i -e "s/  - //" tmp/tmp.txt')
-    tmp = open('tmp/tmp.txt', 'r')
-    read_tmp = tmp.read()
-    audit.write(read_tmp)
-    tmp.close()
-    os.system("rm -fr tmp/tmp.txt")
-    os.system('touch tmp/tmp.txt ; grep "Security Audit" src/data/scanlog.txt > tmp/tmp.txt')
+    os.system('touch tmp/tmp.txt ; grep "Compliance Status" data/scanlog.txt > tmp/tmp.txt')
     os.system('sed -i -e "s/  - //" tmp/tmp.txt')
     tmp = open('tmp/tmp.txt', 'r')
     read_tmp = tmp.read()
@@ -106,14 +90,30 @@ def scan () :
     os.system("rm -fr tmp/tmp.txt")
 
 
-    os.system('touch tmp/tmp.txt ; grep "Vulnerability scan" src/data/scanlog.txt > tmp/tmp.txt')
+    os.system('touch tmp/tmp.txt ; grep "Security audit" data/scanlog.txt > tmp/tmp.txt')
     os.system('sed -i -e "s/  - //" tmp/tmp.txt')
     tmp = open('tmp/tmp.txt', 'r')
     read_tmp = tmp.read()
     audit.write(read_tmp)
     tmp.close()
     os.system("rm -fr tmp/tmp.txt")
-    os.system('touch tmp/tmp.txt ; grep "Vulnerability Scan" src/data/scanlog.txt > tmp/tmp.txt')
+    os.system('touch tmp/tmp.txt ; grep "Security Audit" data/scanlog.txt > tmp/tmp.txt')
+    os.system('sed -i -e "s/  - //" tmp/tmp.txt')
+    tmp = open('tmp/tmp.txt', 'r')
+    read_tmp = tmp.read()
+    audit.write(read_tmp)
+    tmp.close()
+    os.system("rm -fr tmp/tmp.txt")
+
+
+    os.system('touch tmp/tmp.txt ; grep "Vulnerability scan" data/scanlog.txt > tmp/tmp.txt')
+    os.system('sed -i -e "s/  - //" tmp/tmp.txt')
+    tmp = open('tmp/tmp.txt', 'r')
+    read_tmp = tmp.read()
+    audit.write(read_tmp)
+    tmp.close()
+    os.system("rm -fr tmp/tmp.txt")
+    os.system('touch tmp/tmp.txt ; grep "Vulnerability Scan" data/scanlog.txt > tmp/tmp.txt')
     os.system('sed -i -e "s/  - //" tmp/tmp.txt')
     tmp = open('tmp/tmp.txt', 'r')
     read_tmp = tmp.read()
@@ -122,7 +122,7 @@ def scan () :
     os.system("rm -fr tmp/tmp.txt")
 
 
-    os.system('touch tmp/tmp.txt ; grep "Firewall          " src/data/scanlog.txt > tmp/tmp.txt')
+    os.system('touch tmp/tmp.txt ; grep "Firewall          " data/scanlog.txt > tmp/tmp.txt')
     os.system('sed -i -e "s/  - //" tmp/tmp.txt')
     tmp = open('tmp/tmp.txt', 'r')
     read_tmp = tmp.read()
@@ -130,7 +130,7 @@ def scan () :
     tmp.close()
     os.system("rm -fr tmp/tmp.txt")
 
-    os.system('touch tmp/tmp.txt ; grep "Malware scanner    " src/data/scanlog.txt > tmp/tmp.txt')
+    os.system('touch tmp/tmp.txt ; grep "Malware scanner    " data/scanlog.txt > tmp/tmp.txt')
     os.system('sed -i -e "s/  - //" tmp/tmp.txt')
     tmp = open('tmp/tmp.txt', 'r')
     read_tmp = tmp.read()
@@ -165,7 +165,7 @@ def scan () :
     audit.write(date2)
     audit.close()
 
-    result = open("src/data/audit.txt", 'r')
+    result = open("data/audit.txt", 'r')
     res = result.read()
     print("\n", res)
 
@@ -177,7 +177,7 @@ def mail () :
         os.system("sudo apt update -y ; apt upgrade -y")
         scan()
 
-        fi = open("src/data/audit.txt", 'r')
+        fi = open("data/audit.txt", 'r')
         s = fi.read()
 
         #send mail

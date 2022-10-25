@@ -102,6 +102,7 @@ def firewall () :
 
 
 def scan_conf () :
+    print("\nconfiguration of Audit\n")
     mailsender = input('entrer mail sender, outlook uniquement : ')
     os.system('sed -i "s/sendermail1/%s/g" src/secvps.py' % mailsender)
 
@@ -136,13 +137,13 @@ def fail2ban () :
 
 setup()
 os.system('clear')
-print ("> Package ✅")
+print ("\n> Package ✅\n")
 firewall()
 os.system('clear')
-print ("> Setup ✅\n> Firewall ✅")
+print ("\n> Setup ✅\n> Firewall ✅\n")
 scan_conf()
 os.system('clear')
-print ("> Setup ✅\n> Firewall ✅\n> Scan configuration ✅")
+print ("\n> Setup ✅\n> Firewall ✅\n> Scan configuration ✅\n")
 fail2ban()
 os.system('clear')
-print ("> Setup ✅\n> Firewall ✅\n> Scan configuration ✅\n> Fail2ban ✅")
+print ("\n> Setup ✅\n> Firewall ✅\n> Scan configuration ✅\n> Fail2ban ✅\n")
