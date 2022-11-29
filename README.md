@@ -24,21 +24,14 @@ sudo ./setup.sh
 
 ## Usage
 
-Make audit
+Start normal
 
 ```
-chmod +x secvps.sh
-sudo ./secvps.sh -a
+cd src/
+sudo python3 secvps.py
 ```
 
-look mode : create an audit every x hour and send the report by email
-
-```
-chmod +x secvps.sh
-sudo ./secvps.sh -l
-```
-
-look mode with pm2 (install pm2 first)
+Start with pm2
 
 ```
 cd src/
